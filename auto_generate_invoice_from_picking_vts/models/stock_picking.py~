@@ -1,0 +1,11 @@
+from odoo import models, fields, api, _
+
+class stock_picking(models.Model):    
+    _inherit="stock.picking"  
+    
+    @api.multi
+    def action_done(self):
+        result=super(stock_picking,self).action_done()
+        for picking in self:
+            picking.sale_id and picking.sale_id.action_invoice_create()
+        return result
