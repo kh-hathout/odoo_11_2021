@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- Multi Payslip Wizard -->
+        <record id="multi_so_confirm_form_wizard" model="ir.ui.view">
+            <field name="name">multi.so.confirm.wizard.form</field>
+            <field name="model">multi.sale.confirm.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <h4>Are you sure that you want to confirm all selected sale orders?</h4>
+                    <p>Note: all confirmed or cancelled sale orders in the selection will be ignored.</p>
+                    <footer>
+                        <button name="confirm_multi_sale" string="Confirm" type="object"
+                                class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_multi_so_confirm" model="ir.actions.act_window">
+            <field name="name">Confirm Sale Order(s)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">multi.sale.confirm.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="sale.model_sale_order"/>
+        </record>
+    </data>
+</odoo>
