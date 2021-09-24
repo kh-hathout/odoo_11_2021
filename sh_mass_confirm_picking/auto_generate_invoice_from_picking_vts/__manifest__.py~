@@ -1,0 +1,31 @@
+{
+    # App information
+
+    'name': 'Auto Create Invoice When Validate Delivery Order/Incoming Shipment',
+    'version': '11.0',
+    'category': 'Accounting',
+    'summary': 'Auto Create Invoice when Validate Delivery Order/Incoming Shipment',
+    
+    # Dependencies
+
+    'depends': ['purchase','sale'],
+
+    # Views
+
+    'data': [
+        'view/stock_picking.xml',
+        ],
+
+    # Odoo Store Specific
+
+    'images': ['static/description/auto_inv.png'],
+
+    'author': 'Vraja Technologies',
+
+    'demo': [],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+    'price': '11' ,
+    'currency': 'EUR',
+}

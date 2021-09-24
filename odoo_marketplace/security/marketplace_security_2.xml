@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : https://store.webkul.com/license.html/ -->
+
+<odoo>
+	<data noupdate="0">
+
+        <record id="show_seller_account_invoice_rule" model="ir.rule">
+	        <field name="name">Seller account invoice only</field>
+	        <field name="model_id" ref="model_account_invoice"/>
+	        <field name="domain_force">[('invoice_line_ids.product_id.marketplace_seller_id','=',user.partner_id.id)]</field>
+            <field name="perm_write" eval="0"/>
+ 	        <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+	        <field name="groups" eval="[(4, ref('marketplace_seller_group'))]"/>
+	    </record>
+
+        <record id="show_seller_stock_warehouse_orderpoint_rule" model="ir.rule">
+	        <field name="name">Seller Stock Warehouse Orderpoint only</field>
+	        <field name="model_id" ref="stock.model_stock_warehouse_orderpoint"/>
+	        <field name="domain_force">[('product_id.marketplace_seller_id','=',user.partner_id.id)]</field>
+            <field name="perm_write" eval="1"/>
+ 	        <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="0"/>
+	        <field name="groups" eval="[(4, ref('marketplace_seller_group'))]"/>
+	    </record>
+
+    </data>
+</odoo>

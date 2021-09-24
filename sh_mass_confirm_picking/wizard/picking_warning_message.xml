@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="picking_warning_message_view" model="ir.ui.view">
+            <field name="name">picking.warning.message</field>
+            <field name="model">picking.warning.message</field>
+            <field name="arch" type="xml">
+                <form string="Picking Validate Success">
+                    <div class="col-xs-12">
+                        <field name="compute_message" attrs="{'invisible':[('compute_message','=','')]}" />
+                    </div>
+                    <div class="col-xs-12">
+                        <field name="message" attrs="{'invisible':[('message','=','')]}" />
+                    </div>
+                    <footer>
+                        <button string="OK" class="btn-primary" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="picking_warning_message_action" model="ir.actions.act_window">
+            <field name="name">Picking Validate Success</field>
+            <field name="res_model">picking.warning.message</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="picking_warning_message_view" />
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>
