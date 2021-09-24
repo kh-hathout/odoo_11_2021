@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+<!--        <record id="ganttaps_view_task_resources_form" model="ir.ui.view">-->
+<!--                    <field name="name">project.task.ganttaps.resources.form</field>-->
+<!--                    <field name="model">project.task</field>-->
+<!--                    <field name="inherit_id" ref="project_native.ganttaps_view_task_form2"/>-->
+<!--                    <field eval="3" name="priority"/>-->
+<!--                    <field name="arch" type="xml">-->
+
+<!--                        <page name="gantt_predecessor" position="after">-->
+<!--                            <page name="resources" string="Resources">-->
+<!--                                <field name="task_resource_ids" nolabel="1" widget="one2many_list">-->
+<!--                                    <tree string="Resources Link" editable="bottom" >-->
+<!--                                        <field name="resource_id" />-->
+<!--                                        <field name="load_factor" />-->
+<!--                                        <field name="resource_type" />-->
+<!--                                        <field name="load_control" />-->
+<!--         -->
+<!--                                    </tree>-->
+<!--                                </field>-->
+
+<!--                            </page>-->
+<!--                        </page>-->
+
+<!--                    </field>-->
+<!--        </record>-->
+
+
+<!--        &lt;!&ndash;detail_plan_res_link&ndash;&gt;-->
+<!--        <record id="project_task_detail_plan_res_link_form" model="ir.ui.view">-->
+<!--            <field name="name">project.task.detail.plan.res.link.form</field>-->
+<!--            <field name="model">project.task.detail.plan.res.link</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <form string="Resource">-->
+<!--                   <group>-->
+<!--                      <group>-->
+<!--                            <field name="resource_id"/>-->
+<!--                            <field name="project_id"/>-->
+<!--                            <field name="task_id"/>-->
+<!--                            <field name="data_from"/>-->
+<!--                            <field name="data_to"/>-->
+<!--                            <field name="duration" widget="time_delta"/>-->
+
+<!--                       </group>-->
+<!--                    </group>-->
+<!--                </form>-->
+<!--            </field>-->
+<!--        </record>-->
+
+<!--        <record id="project_task_detail_plan_res_link_tree" model="ir.ui.view">-->
+<!--            <field name="name">project.task.detail.plan.res.link.tree</field>-->
+<!--            <field name="model">project.task.detail.plan.res.link</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <tree string="Resources">-->
+<!--                    <field name="resource_id" />-->
+<!--                    <field name="project_id"/>-->
+<!--                    <field name="task_id"/>-->
+<!--                    <field name="data_from"/>-->
+<!--                    <field name="data_to"/>-->
+<!--                    <field name="duration" widget="time_delta"/>-->
+<!--                </tree>-->
+<!--            </field>-->
+<!--        </record>-->
+
+<!--        <record id="view_project_task_detail_plan_res_link_ganttaps" model="ir.ui.view">-->
+<!--            <field name="name">project.task.detail.plan.res.link.ganttaps</field>-->
+<!--            <field name="model">project.task.detail.plan.res.link</field>-->
+<!--            <field name="type">ganttaps</field>-->
+<!--            <field eval="2" name="priority"/>-->
+
+<!--            <field name="arch" type="xml">-->
+<!--                <ganttaps-->
+<!--                        default_group_by = "resource_id"-->
+<!--                        main_group_id_name = "resource_id"-->
+
+<!--                        name = "name"-->
+<!--                        date_start="data_from"-->
+<!--                        date_stop="data_to"-->
+
+<!--                        project_id="task_id"-->
+
+<!--                        no_group_sort_mode=""-->
+
+<!--                        color_gantt_set = "color_gantt_set"-->
+<!--                        color_gantt = "color_gantt"-->
+
+<!--                        load_group_id_name = ""-->
+
+<!--                >-->
+
+<!--                </ganttaps>-->
+
+<!--            </field>-->
+
+<!--            </record>-->
+
+
+
+<!--        <record id="view_detail_plan_resource_link_search" model="ir.ui.view">-->
+<!--            <field name="name">project.task.detail.plan.res.link.search</field>-->
+<!--            <field name="model">project.task.detail.plan.res.link</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <search string="Search Resource">-->
+<!--                   <field name="name" string="Resource"/>-->
+<!--                    <field name="project_id" string="Project"/>-->
+<!--                    <field name="task_id" string="Task"/>-->
+<!--                   &lt;!&ndash;<field name="resource_type"/>&ndash;&gt;-->
+<!--                   &lt;!&ndash;<field name="user_id"/>&ndash;&gt;-->
+<!--                   &lt;!&ndash;<field name="calendar_id"/>&ndash;&gt;-->
+<!--                   &lt;!&ndash;<field name="company_id" groups="base.group_multi_company"/>&ndash;&gt;-->
+<!--                   &lt;!&ndash;<filter string="Inactive" domain="[('active','=',False)]"/>&ndash;&gt;-->
+<!--                   <group expand="0" string="Group By">-->
+<!--                        <filter string="Resource" domain="[]" context="{'group_by':'resource_id'}"/>-->
+<!--                       <filter string="Project" domain="[]" context="{'group_by':'project_id'}"/>-->
+<!--                       <filter string="Task" domain="[]" context="{'group_by':'task_id'}"/>-->
+<!--                   </group>-->
+<!--               </search>-->
+<!--            </field>-->
+<!--        </record>-->
+
+<!--        <record id="action_detail_plan_resource_tree" model="ir.actions.act_window">-->
+<!--            <field name="name">Detail Plan Link</field>-->
+<!--            <field name="res_model">project.task.detail.plan.res.link</field>-->
+<!--            <field name="view_mode">tree,form,ganttaps</field>-->
+<!--            <field name="context">{}</field>-->
+<!--            <field name="search_view_id" ref="view_detail_plan_resource_link_search"/>-->
+<!--        </record>-->
+
+        <menuitem id="project_resource_menu"
+		    parent="project.menu_main_pm"
+		    name="Resource" sequence="90"
+		/>
+
+<!--        <menuitem id="detail_plan_resource_menu"-->
+<!--        parent="project_resource_menu"-->
+<!--        action="action_detail_plan_resource_tree"-->
+<!--        sequence="3"/>-->
+
+        <!--detail_plan_res_link-->
+
+
+        <!--project.task.resource.link-->
+
+        <record id="project_task_resource_link_form" model="ir.ui.view">
+            <field name="name">project.task.resource.link.form</field>
+            <field name="model">project.task.resource.link</field>
+            <field name="arch" type="xml">
+                <form string="Resource">
+                   <group>
+                      <group>
+                            <field name="name"/>
+<!--                            <field name="resource_id"/>-->
+                            <field name="task_id"/>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="duration" widget="time_delta"/>
+                       </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="project_task_resource_link_tree" model="ir.ui.view">
+            <field name="name">project.task.resource.link.tree</field>
+            <field name="model">project.task.resource.link</field>
+            <field name="arch" type="xml">
+                <tree string="Resources">
+                    <field name="name"/>
+                    <field name="resource_id"/>
+                    <field name="task_id"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="duration" widget="time_delta"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_project_task_resource_link_ganttaps" model="ir.ui.view">
+            <field name="name">project.task.resource.link.ganttaps</field>
+            <field name="model">project.task.resource.link</field>
+            <field name="type">ganttaps</field>
+            <field eval="2" name="priority"/>
+
+            <field name="arch" type="xml">
+                <ganttaps
+                        default_group_by = "resource_id"
+                        main_group_id_name = "resource_id"
+
+                        name = "name"
+                        date_start="date_start"
+                        date_stop="date_end"
+
+                        project_id="task_id"
+
+                        no_group_sort_mode=""
+
+                        color_gantt_set = "color_gantt_set"
+                        color_gantt = "color_gantt"
+
+                        load_group_id_name = "resource_id"
+                        load_bar_model = "project.task.detail.plan"
+                        load_bar_record_row = "project_id"
+                        load_id = "task_id"
+                        load_id_from = "resource_id"
+                        load_ids_from = "resource_id"
+                        load_data_id = "resource_id"
+
+                >
+
+                </ganttaps>
+
+            </field>
+
+            </record>
+
+
+
+        <record id="view_project_task_resource_link_search" model="ir.ui.view">
+            <field name="name">project.task.resource.link.search</field>
+            <field name="model">project.task.resource.link</field>
+            <field name="arch" type="xml">
+                <search string="Search Resource">
+                   <field name="name" string="Link Name"/>
+                    <field name="resource_id" string="Resource"/>
+                    <field name="task_id" string="Task"/>
+
+                   <group expand="0" string="Group By">
+                       <filter name="groupby_resource" string="Resource" domain="[]" context="{'group_by':'resource_id'}"/>
+                       <filter name="groupby_projecd" string="Project" domain="[]" context="{'group_by':'project_id'}"/>
+                       <filter name="groupby_task" string="Task" domain="[]" context="{'group_by':'task_id'}"/>
+                   </group>
+
+               </search>
+            </field>
+        </record>
+
+        <record id="action_project_task_resource_link_tree" model="ir.actions.act_window">
+            <field name="name">Resource Task Link</field>
+            <field name="res_model">project.task.resource.link</field>
+            <field name="view_mode">tree,form,ganttaps</field>
+            <field name="context">{}</field>
+            <field name="search_view_id" ref="view_project_task_resource_link_search"/>
+        </record>
+
+
+        <menuitem id="project_task_resource_link_menu"
+        parent="project_resource_menu"
+        action="action_project_task_resource_link_tree"
+        sequence="3"/>
+
+
+  	</data>
+</odoo>
