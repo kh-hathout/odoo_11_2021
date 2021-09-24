@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cancel_multi_delivery_order_wizard" model="ir.ui.view">
+        <field name="name">Cancel Multi Delivery</field>
+        <field name="model">cancel.multi.picking</field>
+        <field name="arch" type="xml">
+            <form string="Cancel Delivery Orders">
+                <p class="oe_grey">
+                    Are you sure you want to cancel selected Picking ?
+                </p>
+                <footer> 
+                    <button name="action_cancel" string="Cancel Delivery Orders" type="object" class="btn-primary"/>
+                    <button string="Not Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    
+    <act_window name="Cancel Delivery Order"
+        res_model="cancel.multi.picking"
+        src_model="stock.picking"
+        view_mode="form"
+        multi="True"
+        target="new"
+        key2="client_action_multi"
+        id="action_view_cancel_multi_delivery_order"/>
+</odoo>
